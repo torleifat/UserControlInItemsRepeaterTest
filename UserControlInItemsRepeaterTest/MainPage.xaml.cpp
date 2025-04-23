@@ -44,9 +44,9 @@ namespace winrt::UserControlInItemsRepeaterTest::implementation
         }
     }
 
-    void MainPage::ItemsView_SizeChanged(winrt::Windows::Foundation::IInspectable const& sender, winrt::Microsoft::UI::Xaml::SizeChangedEventArgs const& e)
-    {
-        auto itemsView = sender.as<winrt::Microsoft::UI::Xaml::Controls::ItemsView>();
-        //itemsView.ScrollView().ScrollTo(itemsView.ScrollView().ScrollableWidth(), 0);
-    }
+    //void MainPage::ItemsView_SizeChanged(winrt::Windows::Foundation::IInspectable const& sender, winrt::Microsoft::UI::Xaml::SizeChangedEventArgs const& e)
+    //{
+    //    auto itemsView = sender.as<winrt::Microsoft::UI::Xaml::Controls::ItemsView>();
+    //    itemsView.ScrollView().ScrollTo(itemsView.ScrollView().ScrollableWidth(), 0);
+    //}
 }

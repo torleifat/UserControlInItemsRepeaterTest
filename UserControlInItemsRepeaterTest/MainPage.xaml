@@ -26,6 +26,7 @@
             </DataTemplate>
 
             <!-- ItemsView DataTemplates-->
+            <!--
             <DataTemplate x:Key="ItemsViewTemplate" x:DataType="x:String">
                 <ItemContainer>
                     <Grid>
@@ -40,7 +41,7 @@
                 <ItemContainer>
                     <local:SimpleUserControl Data="{x:Bind}"></local:SimpleUserControl>
                 </ItemContainer>
-            </DataTemplate>
+            </DataTemplate>-->
 
         </ResourceDictionary>
     </Page.Resources>
@@ -52,8 +53,8 @@
                            ItemsSource="{x:Bind Items}" ItemTemplate="{StaticResource ItemsRepeaterTemplateUserControlTemplate}"/>
         </ScrollViewer>
 
-        <ItemsView SizeChanged="ItemsView_SizeChanged" Layout="{StaticResource HorizontalStackLayout}" 
+        <!--<ItemsView SizeChanged="ItemsView_SizeChanged" Layout="{StaticResource HorizontalStackLayout}" 
                    ItemsSource="{x:Bind Items}" ItemTemplate="{StaticResource ItemsViewUserControlItemTemplate}">
-        </ItemsView>
+        </ItemsView>-->
     </StackPanel>
 </Page>

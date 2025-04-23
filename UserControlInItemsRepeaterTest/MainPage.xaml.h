@@ -11,7 +11,7 @@ namespace winrt::UserControlInItemsRepeaterTest::implementation
         winrt::Windows::Foundation::Collections::IObservableVector<hstring> Items();
         
         void Repeater_SizeChanged(winrt::Windows::Foundation::IInspectable const& sender, winrt::Microsoft::UI::Xaml::SizeChangedEventArgs const& e);
-        void ItemsView_SizeChanged(winrt::Windows::Foundation::IInspectable const& sender, winrt::Microsoft::UI::Xaml::SizeChangedEventArgs const& e);
+        //void ItemsView_SizeChanged(winrt::Windows::Foundation::IInspectable const& sender, winrt::Microsoft::UI::Xaml::SizeChangedEventArgs const& e);
 
     private:
         winrt::Windows::Foundation::Collections::IObservableVector<hstring> m_Items;
