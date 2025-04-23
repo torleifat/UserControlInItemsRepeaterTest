@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Page
+    x:Class="UserControlInItemsRepeaterTest.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:UserControlInItemsRepeaterTest"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d" Background="Aquamarine">
+
+    <Page.Resources>
+        <ResourceDictionary>
+            <StackLayout x:Name="HorizontalStackLayout" Orientation="Horizontal" Spacing="0"/>
+            
+            <!-- ItemsRepeater DataTemplates-->
+            <DataTemplate x:Key="ItemsRepeaterTemplate" x:DataType="x:String"> <!-- Will work as expected. -->
+                <Grid>
+                    <Border Background="Red" BorderBrush="Black" BorderThickness="1" Width="64" Height="64">
+                        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="38" Text="{x:Bind}"/>
+                    </Border>
+                </Grid>
+            </DataTemplate>
+
+            <DataTemplate x:Key="ItemsRepeaterTemplateUserControlTemplate" x:DataType="x:String"> <!-- Will not work as expected :/ -->
+                <local:SimpleUserControl Data="{x:Bind}"></local:SimpleUserControl>
+            </DataTemplate>
+
+            <!-- ItemsView DataTemplates-->
+            <DataTemplate x:Key="ItemsViewTemplate" x:DataType="x:String">
+                <ItemContainer>
+                    <Grid>
+                        <Border Background="Red" BorderBrush="Black" BorderThickness="1" Width="64" Height="64">
+                            <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="38" Text="{x:Bind}"/>
+                        </Border>
+                    </Grid>
+                </ItemContainer>
+            </DataTemplate>
+
+            <DataTemplate x:Key="ItemsViewUserControlItemTemplate" x:DataType="x:String">
+                <ItemContainer>
+                    <local:SimpleUserControl Data="{x:Bind}"></local:SimpleUserControl>
+                </ItemContainer>
+            </DataTemplate>
+
+
+            <Style TargetType="ItemsView">
+                <Setter Property="ItemsPanel">
+                    <Setter.Value>
+                        <ItemsPanelTemplate>
+                        
+                        </ItemsPanelTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+        </ResourceDictionary>
+    </Page.Resources>
+
+    <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Width="300" Spacing="100">
+        
+        <ScrollViewer x:Name="Scroller" Height="64"  Width="300" Background="Green" HorizontalScrollMode="Enabled" HorizontalScrollBarVisibility="Visible">
+            <ItemsRepeater HorizontalCacheLength="100" SizeChanged="Repeater_SizeChanged" x:Name="Repeater" Layout="{StaticResource HorizontalStackLayout}" 
+                           ItemsSource="{x:Bind Items}" ItemTemplate="{StaticResource ItemsRepeaterTemplateUserControlTemplate}"/>
+        </ScrollViewer>
+
+        <ItemsView SizeChanged="ItemsView_SizeChanged" Layout="{StaticResource HorizontalStackLayout}" 
+                   ItemsSource="{x:Bind Items}" ItemTemplate="{StaticResource ItemsViewUserControlItemTemplate}">
+        </ItemsView>
+    </StackPanel>
+</Page>

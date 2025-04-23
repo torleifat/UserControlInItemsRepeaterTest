@@ -1,0 +1,9 @@
+namespace UserControlInItemsRepeaterTest
+{
+    [default_interface]
+    runtimeclass MainPage : Microsoft.UI.Xaml.Controls.Page
+    {
+        MainPage();
+        Windows.Foundation.Collections.IObservableVector<String> Items{ get; };
+    }
+}
