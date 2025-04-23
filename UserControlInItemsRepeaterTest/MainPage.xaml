@@ -42,16 +42,6 @@
                 </ItemContainer>
             </DataTemplate>
 
-
-            <Style TargetType="ItemsView">
-                <Setter Property="ItemsPanel">
-                    <Setter.Value>
-                        <ItemsPanelTemplate>
-                        
-                        </ItemsPanelTemplate>
-                    </Setter.Value>
-                </Setter>
-            </Style>
         </ResourceDictionary>
     </Page.Resources>
 
